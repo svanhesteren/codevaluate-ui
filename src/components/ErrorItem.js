@@ -18,7 +18,6 @@ class ErrorItem extends PureComponent {
 
   render() {
     const loadErrors = this.props.loaderrors
-    // console.log(loadErrors);
     if (!loadErrors) {return null}
 
     return (

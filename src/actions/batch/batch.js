@@ -8,7 +8,7 @@ export const FETCHED_BATCHES = 'FETCHED_BATCHES'
 const api = new ApiClient()
 
 
-export const fetchBatches = () =>  {
+export const fetchAllBatches = () =>  {
   return dispatch => {
 
     dispatch(addLoading(FETCHED_BATCHES))

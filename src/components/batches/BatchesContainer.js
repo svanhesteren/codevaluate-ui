@@ -1,19 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import Title from '../Title'
-import BatchItem from './BatchItem'
-import {fetchBatches} from '../../actions/batch/batch'
+// import Title from '../Title'
+import BatchItem, {batchShape} from './BatchItem'
+// import {fetchAllBatches} from '../../actions/batch/batch'
 
 class BatchesContainer extends PureComponent {
   static propTypes = {
-    batches: PropTypes.array
+    batches: PropTypes.arrayOf(batchShape).isRequired,
   }
 
-  componentWillMount() {
 
-    this.props.fetchBatches()
-  }
 
   renderBatch = (batch, index) => {
     return <BatchItem key={index} { ...batch } />
@@ -22,7 +19,7 @@ class BatchesContainer extends PureComponent {
 
   render () {
     return (
-      <div className="batches">
+      <div className="batchesContainer">
         {this.props.batches.map(this.renderBatch)}
       </div>
     )
@@ -32,10 +29,6 @@ class BatchesContainer extends PureComponent {
 
 const mapStateToProps = ({ batches }) => ({ batches })
 
-const mapDispatchToProps = {fetchBatches}
-// Same as:
-// const mapStoreToProps = (store) => {
-//   return { recipes: store.recipes }
-// }
 
-export default connect(mapStateToProps, mapDispatchToProps )(BatchesContainer)
+
+export default connect(mapStateToProps )(BatchesContainer)
