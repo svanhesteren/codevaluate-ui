@@ -16,18 +16,22 @@ export class BatchPage extends PureComponent {
     // console.log(this.props.match.params.batchId);
     const batchId = this.props.match.params.batchId
     this.props.fetchOneBatch(batchId)
-    console.log(this.props);
     if(this.props.batches) {
       this.props.fetchBatchStudents(batchId)
     }
 
   }
+  componentDidMount() {
 
+  }
   render() {
+    // console.log(this.props.students);
+    // console.log(this.props.batches);
     return (
       <div>
         <h1>hi this is batchpage</h1>
         <pre>{JSON.stringify(this.props.batches[0], null, 2)}</pre>
+        <pre>amount of students: { this.props.students.length}</pre>
         <StudentsContainer students={this.props.students} />
       </div>
     )
@@ -40,6 +44,6 @@ export class BatchPage extends PureComponent {
 
 const mapDispatchToProps = { fetchOneBatch, fetchBatchStudents }
 
-const mapStateToProps = ({batches}, {match}) => ({batches, match})
+const mapStateToProps = ({batches, students}, {match}) => ({batches, students, match})
 
 export default connect(mapStateToProps, mapDispatchToProps)(BatchPage)

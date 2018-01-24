@@ -11,7 +11,7 @@ class StudentsContainer extends PureComponent {
 
   componentWillMount() {
     // this.props.fetchAllStudents()
-    console.log(this.props);
+    // console.log(this.props);
   }
 
   renderStudent = (student, index) => {
