@@ -19,8 +19,6 @@ export class StudentsPage extends PureComponent {
 
   }
 
-
-
   render() {
     return (
       <div>
@@ -31,8 +29,6 @@ export class StudentsPage extends PureComponent {
   }
 
 }
-
-
 
 
 const mapDispatchToProps = { fetchAllStudents }
