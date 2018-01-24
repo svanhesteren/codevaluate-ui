@@ -10,7 +10,7 @@ class BatchItem extends PureComponent {
   render() {
     return (
       <div>
-        <h3>batch item</h3>
+        <h3>{this.props.toJSON}</h3>
       </div>
     )
 
