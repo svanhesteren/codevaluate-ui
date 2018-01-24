@@ -14,6 +14,8 @@ export const fetchBatches = () =>  {
 
     function endLoading() { dispatch(loading(false)) }
 
+    console.log("Fetching all batches.......")
+
     api.get('batches')
       .then(res => {
         dispatch({ type: FETCHED_BATCHES, payload: res.body })
@@ -31,6 +33,8 @@ export const fetchOneBatch = (batchId) =>  {
     dispatch(loading(true))
 
     function endLoading() { dispatch(loading(false)) }
+
+    console.log("Fetching one batch.......")
 
     api.get(`batches/${batchId}`)
       .then(res => {

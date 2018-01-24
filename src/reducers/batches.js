@@ -13,7 +13,7 @@ export default function(state = [], action = {}) {
     //   })
 
     case FETCHED_BATCHES:
-      console.log("Fetching batches.......")
+      
       // console.log(action.payload)
       return [...action.payload]
 

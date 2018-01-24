@@ -36,6 +36,6 @@ export class StudentPage extends PureComponent {
 
 const mapDispatchToProps = { fetchOneStudent }
 
-const mapStateToProps = ({batches}, {match}) => ({batches, match})
+const mapStateToProps = ({students}, {match}) => ({students, match})
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentPage)

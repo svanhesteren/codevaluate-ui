@@ -14,6 +14,8 @@ export const fetchAllStudents = () =>  {
 
     function endLoading() { dispatch(loading(false)) }
 
+    console.log("Fetching all students.......")
+
     api.get('students')
       .then(res => {
         dispatch({ type: FETCHED_STUDENTS, payload: res.body })
@@ -33,6 +35,8 @@ export const fetchBatchStudents = (batchId) =>  {
 
     function endLoading() { dispatch(loading(false)) }
 
+    console.log("Fetching batch students.......")
+
     api.get(`batches/${batchId}/students`)
       .then(res => {
         dispatch({ type: FETCHED_STUDENTS, payload: [...res.body] })
@@ -51,6 +55,8 @@ export const fetchOneStudent = (studentId) =>  {
     dispatch(loading(true))
 
     function endLoading() { dispatch(loading(false)) }
+
+    console.log("Fetching one student.......")
 
     api.get(`students/${studentId}`)
       .then(res => {
