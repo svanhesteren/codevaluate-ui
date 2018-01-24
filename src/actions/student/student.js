@@ -25,6 +25,7 @@ export const fetchAllStudents = () =>  {
       })
   }
 }
+
 export const fetchBatchStudents = (batchId) =>  {
   return dispatch => {
 
@@ -41,5 +42,25 @@ export const fetchBatchStudents = (batchId) =>  {
         dispatch(loadError(err))
         endLoading()
       })
+  }
+}
+
+export const fetchOneStudent = (studentId) =>  {
+  return dispatch => {
+
+    dispatch(loading(true))
+
+    function endLoading() { dispatch(loading(false)) }
+
+    api.get(`students/${studentId}`)
+      .then(res => {
+        dispatch({ type: FETCHED_STUDENTS, payload: [res.body] })
+        endLoading()
+      })
+      .catch(err => {
+        dispatch(loadError(err))
+        endLoading()
+      })
+
   }
 }
