@@ -66,8 +66,8 @@ export default class ApiClient {
     return headers
   }
 
-  athenticate(email, password) {
-    return this.post(this.createUrl('sessions'), {email, password})
+  authenticate(email, password) {
+    return this.post('sessions', {email, password})
   }
 
   signOut() {
@@ -88,9 +88,10 @@ export default class ApiClient {
   }
 
   storeToken(token) {
+    console.log("storing token");
     localStorage.setItem(this.options.tokenStorageKey, token)
   }
   removeToken() {
-    localStorage.delete(this.options.tokenStorageKey)
+    localStorage.removeItem(this.options.tokenStorageKey)
   }
 }

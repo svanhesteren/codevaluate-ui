@@ -8,7 +8,6 @@ export default function(state = [], action = {}) {
 
     case REMOVE_LOADING:
       return state.filter(item => item !== action.payload)
-      // return state
 
     default:
       return state

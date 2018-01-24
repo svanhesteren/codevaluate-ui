@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { userSignIn } from '../actions/user/sign-in'
+import  userSignIn from '../actions/user/sign-in'
 import Title from '../components/Title'
 
 export class SignIn extends PureComponent {
