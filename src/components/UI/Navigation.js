@@ -8,9 +8,23 @@ import IconButton from 'material-ui/IconButton'
 import Button from 'material-ui/Button'
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import { withStyles } from 'material-ui/styles';
+// import { withStyles } from 'material-ui/styles';
+import MenuIcon from 'material-ui-icons/Menu';
 
 const TITLE = 'MEMORY'
+
+const styles = {
+  root: {
+    width: '100%',
+  },
+  flex: {
+    flex: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+};
 
 class Navigation extends PureComponent {
   static propTypes = {
@@ -33,13 +47,22 @@ class Navigation extends PureComponent {
   render() {
     const { signedIn } = this.props
     return (
-      <AppBar position="static" color="default">
-      <Toolbar>
-         <Typography type="title" color="inherit">
-           Title
-         </Typography>
-       </Toolbar>
-      </AppBar>
+      <div className={styles.root}>
+            <AppBar position="static">
+              <Toolbar>
+                <IconButton styles={styles.menuButton} color="inherit" aria-label="Menu">
+                  <MenuIcon />
+                </IconButton>
+                <Typography type="title" color="inherit" styles={styles.flex}>
+                  Title
+                </Typography>
+                {signedIn ?
+                  <Button color="inherit">Logout</Button> :
+                  <Button color="inherit">Login</Button>
+                }
+              </Toolbar>
+            </AppBar>
+          </div>
     )
   }
 }

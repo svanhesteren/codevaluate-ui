@@ -23,14 +23,12 @@ class App extends Component {
   // }
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
         <div className="App">
           <Loading />
           <ErrorItem />
           <Navigation />
           <Routes />
         </div>
-      </MuiThemeProvider>
     )
   }
 }
