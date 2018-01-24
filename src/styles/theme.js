@@ -1,5 +1,4 @@
-// src/styles/theme.js
-import {createMuiTheme} from 'material-ui/styles'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 // Colors
 export const green        = '#00AA86'
@@ -13,8 +12,7 @@ export const grey50       = 'rgba(222, 222, 222, 0.5)'
 export const grey30       = 'rgba(222, 222, 222, 0.7)'
 
 // Palette
-export default createMuiTheme({
-palette: {
+export const palette = {
   primary1Color: red,
   primary2Color: green,
   primary3Color: green,
@@ -24,5 +22,6 @@ palette: {
   canvasColor: white,
   borderColor: grey,
   disabledColor: grey30
-  }
-})
+}
+
+export default getMuiTheme({ palette })
