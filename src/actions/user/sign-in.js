@@ -17,8 +17,6 @@ export const userSignIn = (user) => {
       }).catch((error) => console.log(error))
 
     api.get('users/me')
-    // .header('Access-Control-Allow-Origin', '*')
-    // .set('Authorization', `Bearer ${localStorage.recipeApiJWT}`)
     .then((response) => {
       dispatch( {type: USER_SIGNED_IN, payload: {name: response.body.name, email: response.body.email, id:response.body._id} } )
       console.log(response)

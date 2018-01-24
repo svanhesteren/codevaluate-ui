@@ -12,9 +12,9 @@ class BatchesContainer extends PureComponent {
 
   componentWillMount() {
 
-    this.props.fetchBatches() // or:
-    // this.props.dispatch(fetch()) //if not using mapDispatchToProps
+    this.props.fetchBatches()
   }
+
   renderBatch = (batch, index) => {
     return <BatchItem key={index} { ...batch } />
 
@@ -27,9 +27,6 @@ class BatchesContainer extends PureComponent {
       </div>
     )
   }
-
-
-
 
 
 }

@@ -29,3 +29,25 @@ export const fetchBatches = () =>  {
 
   }
 }
+export const fetchOneBatch = (batchId) =>  {
+  return dispatch => {
+
+    dispatch(loading(true))
+
+    function endLoading() { dispatch(loading(false)) }
+
+    api.get(`batches/${batchId}`)
+      .then(res => {
+        dispatch({ type: FETCHED_BATCHES, payload: [res.body] })
+        endLoading()
+      })
+      .catch(err => {
+        dispatch(loadError(err))
+        endLoading()
+      })
+
+
+
+
+  }
+}
