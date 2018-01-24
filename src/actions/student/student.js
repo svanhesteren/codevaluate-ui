@@ -1,6 +1,6 @@
 // src/actions/recipes/fetch
 import ApiClient from '../../api/client'
-import loading from '../loading'
+import {addLoading, removeLoading} from '../loading'
 import loadError from '../loadError'
 
 export const FETCHED_STUDENTS = 'FETCHED_STUDENTS'
@@ -10,9 +10,9 @@ const api = new ApiClient()
 export const fetchAllStudents = () =>  {
   return dispatch => {
 
-    dispatch(loading(true))
+    dispatch(addLoading(FETCHED_STUDENTS))
 
-    function endLoading() { dispatch(loading(false)) }
+    function endLoading() { dispatch(removeLoading(FETCHED_STUDENTS)) }
 
     console.log("Fetching all students.......")
 
@@ -31,9 +31,9 @@ export const fetchAllStudents = () =>  {
 export const fetchBatchStudents = (batchId) =>  {
   return dispatch => {
 
-    dispatch(loading(true))
+    dispatch(addLoading(FETCHED_STUDENTS))
 
-    function endLoading() { dispatch(loading(false)) }
+    function endLoading() { dispatch(removeLoading(FETCHED_STUDENTS)) }
 
     console.log("Fetching batch students.......")
 
@@ -52,9 +52,9 @@ export const fetchBatchStudents = (batchId) =>  {
 export const fetchOneStudent = (studentId) =>  {
   return dispatch => {
 
-    dispatch(loading(true))
+    dispatch(addLoading(FETCHED_STUDENTS))
 
-    function endLoading() { dispatch(loading(false)) }
+    function endLoading() { dispatch(removeLoading(FETCHED_STUDENTS)) }
 
     console.log("Fetching one student.......")
 

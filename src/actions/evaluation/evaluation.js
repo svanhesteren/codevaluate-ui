@@ -1,6 +1,6 @@
 // src/actions/recipes/fetch
 import ApiClient from '../../api/client'
-import loading from '../loading'
+import {addLoading, removeLoading} from '../loading'
 import loadError from '../loadError'
 
 export const FETCHED_EVALUATIONS = 'FETCHED_EVALUATIONS'
@@ -11,9 +11,9 @@ const api = new ApiClient()
 export const fetchAllEvaluations = () =>  {
   return dispatch => {
 
-    dispatch(loading(true))
+    dispatch(addLoading(FETCHED_EVALUATIONS))
 
-    function endLoading() { dispatch(loading(false)) }
+    function endLoading() { dispatch(removeLoading(FETCHED_EVALUATIONS)) }
 
     console.log("Fetching all evaluations.......")
 
@@ -31,9 +31,9 @@ export const fetchAllEvaluations = () =>  {
 export const fetchStudentEvaluations = (studentId) =>  {
   return dispatch => {
 
-    dispatch(loading(true))
+    dispatch(addLoading(FETCHED_EVALUATIONS))
 
-    function endLoading() { dispatch(loading(false)) }
+    function endLoading() { dispatch(removeLoading(FETCHED_EVALUATIONS)) }
 
     console.log("Fetching student evaluations.......")
 
@@ -52,9 +52,9 @@ export const fetchStudentEvaluations = (studentId) =>  {
 export const fetchOneEvaluation = (evalId) =>  {
   return dispatch => {
 
-    dispatch(loading(true))
+    dispatch(addLoading(FETCHED_EVALUATIONS))
 
-    function endLoading() { dispatch(loading(false)) }
+    function endLoading() { dispatch(removeLoading(FETCHED_EVALUATIONS)) }
 
     console.log("Fetching one evaluation.......")
 

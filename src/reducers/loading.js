@@ -1,10 +1,15 @@
-import {LOADING} from '../actions/loading'
+import {ADD_LOADING, REMOVE_LOADING} from '../actions/loading'
 
 
-export default function(state = false, action = {}) {
+export default function(state = [], action = {}) {
   switch(action.type) {
-    case LOADING:
-      return action.payload
+    case ADD_LOADING:
+      return [...state, action.payload]
+
+    case REMOVE_LOADING:
+      return state.filter(item => item !== action.payload)
+      // return state
+
     default:
       return state
   }

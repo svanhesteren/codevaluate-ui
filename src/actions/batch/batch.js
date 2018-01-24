@@ -1,18 +1,19 @@
 // src/actions/recipes/fetch
 import ApiClient from '../../api/client'
-import loading from '../loading'
+import {addLoading, removeLoading} from '../loading'
 import loadError from '../loadError'
 
 export const FETCHED_BATCHES = 'FETCHED_BATCHES'
 
 const api = new ApiClient()
 
+
 export const fetchBatches = () =>  {
   return dispatch => {
 
-    dispatch(loading(true))
+    dispatch(addLoading(FETCHED_BATCHES))
 
-    function endLoading() { dispatch(loading(false)) }
+    function endLoading() { dispatch(removeLoading(FETCHED_BATCHES)) }
 
     console.log("Fetching all batches.......")
 
@@ -30,9 +31,9 @@ export const fetchBatches = () =>  {
 export const fetchOneBatch = (batchId) =>  {
   return dispatch => {
 
-    dispatch(loading(true))
+    dispatch(addLoading(FETCHED_BATCHES))
 
-    function endLoading() { dispatch(loading(false)) }
+    function endLoading() { dispatch(removeLoading(FETCHED_BATCHES)) }
 
     console.log("Fetching one batch.......")
 
