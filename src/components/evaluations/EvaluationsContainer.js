@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import EvaluationItem from './StudentItem'
+import EvaluationItem from './EvaluationItem'
 // import {fetchAllStudents} from '../../actions/student/student'
 
 class EvaluationsContainer extends PureComponent {
   static propTypes = {
-    students: PropTypes.array
+    evaluations: PropTypes.array
   }
 
   componentWillMount() {

@@ -11,9 +11,7 @@ class EvaluationItem extends PureComponent {
     return (
       <div>
         <div>
-          <Link to={`/evaluations/${this.props._id}`}>
             <pre>{JSON.stringify(this.props, null, 2)}</pre>
-          </Link>
         </div>
       </div>
     )

@@ -3,7 +3,7 @@ import ApiClient from '../../api/client'
 import loading from '../loading'
 import loadError from '../loadError'
 
-export const FETCHED_EVALUATONS = 'FETCHED_EVALUATONS'
+export const FETCHED_EVALUATIONS = 'FETCHED_EVALUATIONS'
 
 const api = new ApiClient()
 
@@ -19,7 +19,7 @@ export const fetchAllEvaluations = () =>  {
 
     api.get('evaluations')
       .then(res => {
-        dispatch({ type: FETCHED_EVALUATONS, payload: res.body })
+        dispatch({ type: FETCHED_EVALUATIONS, payload: res.body })
         endLoading()
       })
       .catch(err => {
@@ -39,7 +39,7 @@ export const fetchStudentEvaluations = (studentId) =>  {
 
     api.get(`students/${studentId}/evaluations`)
       .then(res => {
-        dispatch({ type: FETCHED_EVALUATONS, payload: [...res.body] })
+        dispatch({ type: FETCHED_EVALUATIONS, payload: [...res.body] })
         endLoading()
       })
       .catch(err => {
@@ -60,7 +60,7 @@ export const fetchOneEvaluation = (evalId) =>  {
 
     api.get(`evaluations/${evalId}`)
       .then(res => {
-        dispatch({ type: FETCHED_EVALUATONS, payload: [res.body] })
+        dispatch({ type: FETCHED_EVALUATIONS, payload: [res.body] })
         endLoading()
       })
       .catch(err => {

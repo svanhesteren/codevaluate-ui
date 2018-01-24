@@ -16,9 +16,12 @@ export class BatchPage extends PureComponent {
     // console.log(this.props.match.params.batchId);
     const batchId = this.props.match.params.batchId
     this.props.fetchOneBatch(batchId)
-    if(this.props.batches) {
-      this.props.fetchBatchStudents(batchId)
-    }
+    this.props.fetchBatchStudents(batchId)
+
+    // console.log("batches", this.props);
+
+    // if(this.props.batches) {
+    // }
 
   }
   componentDidMount() {
