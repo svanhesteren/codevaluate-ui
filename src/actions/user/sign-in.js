@@ -20,17 +20,13 @@ export default (user) => {
         const jwt  = response.body.token
         api.storeToken(jwt)
 
-
         dispatch(replace('/'))
-        // console.log(localStorage);
-
 
       })
-      // .catch((error) => {
-      //   endLoading()
-      //   console.log(error)
-      //   dispatch(loadError(error))
-      // })
+      .catch((error) => {
+        endLoading()
+        dispatch(loadError(error))
+      })
 
       api.get('users/me')
 
@@ -44,17 +40,12 @@ export default (user) => {
           }
         })
         endLoading()
-        // console.log("me response",response)
       })
     .catch(error => {
       endLoading()
       dispatch(loadError(error))
-      // console.log('in getting me: ',error)
     })
 
 
   }
 }
-
-
-//dispatch({type: USER_SIGNED_IN, payload: {user: response.body}})
