@@ -28,7 +28,6 @@ class BatchesContainer extends PureComponent {
     )
   }
 
-
 }
 
 const mapStateToProps = ({ batches }) => ({ batches })

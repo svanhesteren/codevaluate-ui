@@ -7,7 +7,7 @@ import StudentsContainer from '../students/StudentsContainer'
 // import Title from '../components/Title'
 import {Link} from 'react-router-dom'
 
-export class BatchPage extends PureComponent {
+export class StudentPage extends PureComponent {
   // static propTypes = {
   //   title: PropTypes.string,
   // }
@@ -42,4 +42,4 @@ const mapDispatchToProps = { fetchOneBatch, fetchBatchStudents }
 
 const mapStateToProps = ({batches}, {match}) => ({batches, match})
 
-export default connect(mapStateToProps, mapDispatchToProps)(BatchPage)
+export default connect(mapStateToProps, mapDispatchToProps)(StudentPage)

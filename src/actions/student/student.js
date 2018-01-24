@@ -3,20 +3,20 @@ import ApiClient from '../../api/client'
 import loading from '../loading'
 import loadError from '../loadError'
 
-export const FETCHED_BATCHES = 'FETCHED_BATCHES'
+export const FETCHED_STUDENTS = 'FETCHED_STUDENTS'
 
 const api = new ApiClient()
 
-export const fetchBatches = () =>  {
+export const fetchAllStudents = () =>  {
   return dispatch => {
 
     dispatch(loading(true))
 
     function endLoading() { dispatch(loading(false)) }
 
-    api.get('batches')
+    api.get('students')
       .then(res => {
-        dispatch({ type: FETCHED_BATCHES, payload: res.body })
+        dispatch({ type: FETCHED_STUDENTS, payload: res.body })
         endLoading()
       })
       .catch(err => {
@@ -25,25 +25,21 @@ export const fetchBatches = () =>  {
       })
   }
 }
-export const fetchOneBatch = (batchId) =>  {
+export const fetchBatchStudents = (batchId) =>  {
   return dispatch => {
 
     dispatch(loading(true))
 
     function endLoading() { dispatch(loading(false)) }
 
-    api.get(`batches/${batchId}`)
+    api.get(`batches/${batchId}/students`)
       .then(res => {
-        dispatch({ type: FETCHED_BATCHES, payload: [res.body] })
+        dispatch({ type: FETCHED_STUDENTS, payload: [...res.body] })
         endLoading()
       })
       .catch(err => {
         dispatch(loadError(err))
         endLoading()
       })
-
-
-
-
   }
 }
