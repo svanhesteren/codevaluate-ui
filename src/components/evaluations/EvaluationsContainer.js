@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import StudentItem from './StudentItem'
+import EvaluationItem from './StudentItem'
 // import {fetchAllStudents} from '../../actions/student/student'
 
-class StudentsContainer extends PureComponent {
+class EvaluationsContainer extends PureComponent {
   static propTypes = {
     students: PropTypes.array
   }
 
   componentWillMount() {
-    console.log(this.props.students);
+    console.log(this.props.evaluations);
     // if(this.props.students.length <= 0){
     //
     //   this.props.fetchAllStudents()
@@ -18,23 +18,23 @@ class StudentsContainer extends PureComponent {
     // console.log(this.props);
   }
 
-  renderStudent = (student, index) => {
-    return <StudentItem key={index} { ...student } />
+  renderEvaluation = (evaluation, index) => {
+    return <EvaluationItem key={index} { ...evaluation } />
   }
 
   render () {
     return (
       <div>
-        {this.props.students.map(this.renderStudent)}
+        {this.props.evaluations.map(this.renderEvaluation)}
       </div>
     )
   }
 
 }
 
-const mapStateToProps = ({ students }) => ({ students })
+const mapStateToProps = ({ evaluations }) => ({ evaluations })
 
 // const mapDispatchToProps = {fetchAllStudents}
 
 
-export default connect(mapStateToProps )(StudentsContainer)
+export default connect(mapStateToProps )(EvaluationsContainer)
