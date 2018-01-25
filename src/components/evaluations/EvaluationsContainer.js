@@ -10,7 +10,7 @@ class EvaluationsContainer extends PureComponent {
   }
 
   componentWillMount() {
-    console.log(this.props.evaluations);
+    // console.log(this.props.evaluations);
     // if(this.props.students.length <= 0){
     //
     //   this.props.fetchAllStudents()

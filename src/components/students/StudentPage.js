@@ -23,12 +23,20 @@ export class StudentPage extends PureComponent {
   }
 
   render() {
-    const studentItems = this.props.students.map(student => student)[0]
+    // console.log(this.props.students);
+    const studentName = this.props.students.map(p => (p.name|| ""))[0]
+    const studentPic = this.props.students.map(p => (p.picture|| ""))[0]
+
 
     return (
       <div>
-        <h2>Name: {!!studentItems && studentItems.name}</h2>
-        <img src={!!studentItems && studentItems.picture} alt="student" />
+
+          <div>
+          <h2>Name: { studentName}</h2>
+          <img src= { studentPic} alt="student" />
+          </div>
+
+
         <h3>Evaluations: </h3>
         <EvaluationsContainer evaluations={this.props.evaluations} />
       </div>
@@ -42,6 +50,8 @@ export class StudentPage extends PureComponent {
 
 const mapDispatchToProps = { fetchOneStudent, fetchStudentEvaluations }
 
-const mapStateToProps = ({students, evaluations}, {match}) => ({students, evaluations, match})
+const mapStateToProps = ({students, evaluations}, {match}) => ({
+  students: students,
+  evaluations, match})
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentPage)
