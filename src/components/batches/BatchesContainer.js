@@ -11,7 +11,6 @@ export class BatchesContainer extends PureComponent {
   }
 
 
-
   renderBatch = (batch, index) => {
     return <BatchItem key={index} { ...batch } />
 
@@ -20,8 +19,13 @@ export class BatchesContainer extends PureComponent {
   render () {
 
 
+    const style = {
+      'display': 'flex',
+      'flex-wrap': 'wrap'
+    }
+
     return (
-      <div className="batchesContainer" >
+      <div className="batchesContainer" style={style} >
         {this.props.batches.map(this.renderBatch)}
       </div>
     )

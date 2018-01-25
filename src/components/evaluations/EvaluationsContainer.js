@@ -23,8 +23,14 @@ class EvaluationsContainer extends PureComponent {
   }
 
   render () {
+
+    const style = {
+      'display':'flex',
+      'flex-wrap': 'wrap'
+    }
+
     return (
-      <div>
+      <div style={style}>
         {this.props.evaluations.map(this.renderEvaluation)}
       </div>
     )

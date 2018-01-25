@@ -7,10 +7,10 @@ import Paper from 'material-ui/Paper'
 import Avatar from 'material-ui/Avatar';
 
 const style2 = {
-  display: 'flex',
-  flexWrap: 'wrap',
+  // display: 'flex',
+  // flexWrap: 'wrap',
   // flex: 1,
-  width: 400,
+  width: 200,
   height: 200,
   margin: '10px 10px',
   padding: 20

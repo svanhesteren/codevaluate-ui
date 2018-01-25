@@ -32,17 +32,22 @@ export class StudentPage extends PureComponent {
     const {signedIn} = this.props
     if(!signedIn) {return null}
 
+    const style = {
+      'display':'flex',
+      'flex-direction' : 'column'
+    }
+
     return (
 
-      <div>
+      <div style={style}>
 
-          <div>
+          <div style={{padding: 30}}>
           <h2>Name: { studentName}</h2>
           <img src= { studentPic} alt="student" />
-          </div>
-
-        <h3>Evaluations: </h3>
-        <EvaluationForm studentId={this.props.match.params.studentId} />
+          <h3>Create Evaluation: </h3>
+          <EvaluationForm studentId={this.props.match.params.studentId} />
+          <h3>Evaluations: </h3>
+        </div>
         <EvaluationsContainer evaluations={this.props.evaluations} />
       </div>
     )
