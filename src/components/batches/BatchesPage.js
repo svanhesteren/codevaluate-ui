@@ -7,7 +7,7 @@ import BatchesContainer from './BatchesContainer'
 import Title from '../Title'
 import {batchShape} from './BatchItem'
 import {replace, push} from 'react-router-redux'
-import {BatchForm} from './BatchForm'
+import BatchForm from './BatchForm'
 // import {Link} from 'react-router-dom'
 
 
@@ -33,8 +33,8 @@ export class BatchesPage extends PureComponent {
     return (
       <div>
         <Title content={TITLE_TEXT} />
-        <BatchesContainer batches={this.props.batches} />
         <BatchForm />
+        <BatchesContainer batches={this.props.batches} />
       </div>
     )
   }

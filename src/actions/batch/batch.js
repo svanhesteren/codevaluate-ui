@@ -18,7 +18,7 @@ export const createBatch = (batch) => {
     function endLoading() { dispatch(removeLoading(CREATE_BATCH)) }
 
 
-    api.post('/batches', batch)
+    api.post('batches', batch)
       .then(() => {
         dispatch(replace("/"))
         endLoading()
@@ -69,9 +69,6 @@ export const fetchOneBatch = (batchId) =>  {
         dispatch(loadError(err))
         endLoading()
       })
-
-
-
 
   }
 }

@@ -6,10 +6,13 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import DatePicker from 'material-ui/DatePicker';
-import { createBatch } from '../../actions/batch/batch'
+import  {createBatch}  from '../../actions/batch/batch'
 
 export class BatchForm extends PureComponent {
 
+  static propTypes = {
+    createBatch: PropTypes.func.isRequired
+  }
   constructor(props) {
     super(props)
 
@@ -112,7 +115,7 @@ export class BatchForm extends PureComponent {
   render() {
     return (
 
-      <Paper style={{width: 500, height: 500}}>
+      <Paper style={{width: 500, height: 200}}>
         <form onSubmit={this.submitForm.bind(this)}>
           <div className="input">
             <TextField ref="name" type="text" hintText="Batch name"
