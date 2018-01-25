@@ -20,8 +20,8 @@ export default class Routes extends Component {
         <Route exact path="/students/:studentId" component={StudentPage}/>
         <Route exact path="/batches/:batchId" component={BatchPage} />
         <Route exact path="/batches/:batchId/students" component={StudentsContainer} />
-        <Route path="/sign-up" component={SignUp} />
-        <Route path="/sign-in" component={SignIn} />
+        <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/sign-in" component={SignIn} />
       </div>
     )
   }
