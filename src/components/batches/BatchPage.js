@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import {fetchOneBatch} from '../../actions/batch/batch'
 import {fetchBatchStudents} from '../../actions/student/student'
 import StudentsContainer from '../students/StudentsContainer'
-// import Title from '../Title'
-// import {Link} from 'react-router-dom'
+import StudentForm from '../students/StudentForm'
 import {batchShape} from './BatchItem'
 import {replace, push} from 'react-router-redux'
 
@@ -40,6 +39,7 @@ export class BatchPage extends PureComponent {
         <h3>start date: {!!batchItems && batchItems.start_date}</h3>
         <h3>end date: {!!batchItems && batchItems.end_date}</h3>
         <pre>amount of students: { this.props.students.length}</pre>
+        <StudentForm batchId={this.props.match.params.batchId}/>
         <StudentsContainer students={this.props.students} />
       </div>
     )
