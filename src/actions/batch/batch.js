@@ -19,7 +19,8 @@ export const createBatch = (batch) => {
 
 
     api.post('batches', batch)
-      .then(() => {
+      .then((res) => {
+        dispatch({type: CREATE_BATCH, payload: res.body})
         dispatch(replace("/"))
         endLoading()
       })

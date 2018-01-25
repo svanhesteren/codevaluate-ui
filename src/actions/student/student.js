@@ -21,6 +21,8 @@ export const createStudent = (batchId, student) => {
     api.post(`batches/${batchId}/students`, student)
       .then((res) => {
         endLoading()
+        dispatch({type: CREATE_STUDENT, payload: res.body})
+
         dispatch(replace(`/batches/${batchId}`))
       })
       .catch(err => {

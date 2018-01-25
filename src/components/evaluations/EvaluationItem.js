@@ -15,7 +15,7 @@ const style2 = {
   padding: 20
 }
 
-const YELLOW = '#ff9933'
+const YELLOW = '#ffcc00'
 const RED = '#990000'
 const GREEN = '#33cc33'
 
@@ -45,7 +45,7 @@ class EvaluationItem extends PureComponent {
 
     return (
       <div style={style2}>
-        
+
         <Paper style={{padding: 30, width: 200, 'background-color': `${codeColor}`}}>
         <h5>Date: {this.props.date}</h5>
         <pre>{this.props.remark}</pre>

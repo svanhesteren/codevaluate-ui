@@ -2,11 +2,35 @@
 import ApiClient from '../../api/client'
 import {addLoading, removeLoading} from '../loading'
 import loadError from '../loadError'
+import {replace, push} from 'react-router-redux'
 
 export const FETCHED_EVALUATIONS = 'FETCHED_EVALUATIONS'
+export const CREATE_EVALUATION = 'CREATE_EVALUATION'
 
 const api = new ApiClient()
 
+
+export const createEvaluation = (studentId, evaluation) => {
+
+  return dispatch => {
+
+    dispatch(addLoading(CREATE_EVALUATION))
+
+    function endLoading() { dispatch(removeLoading(CREATE_EVALUATION)) }
+
+
+    api.post(`students/${studentId}/evaluations`, evaluation)
+      .then((res) => {
+        endLoading()
+        dispatch({type: CREATE_EVALUATION, payload: res.body})
+        dispatch(replace(`/students/${studentId}`))
+      })
+      .catch(err => {
+        dispatch(loadError(err))
+        endLoading()
+      })
+  }
+}
 
 export const fetchAllEvaluations = () =>  {
   return dispatch => {

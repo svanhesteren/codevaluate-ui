@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import {fetchOneStudent} from '../../actions/student/student'
 import {fetchStudentEvaluations} from '../../actions/evaluation/evaluation'
 import EvaluationsContainer from '../evaluations/EvaluationsContainer'
+import EvaluationForm from "../evaluations/EvaluationForm"
 // import {fetchBatchStudents} from '../../actions/student/student'
 // import StudentsContainer from '../students/StudentsContainer'
 // import Title from '../components/Title'
@@ -40,8 +41,8 @@ export class StudentPage extends PureComponent {
           <img src= { studentPic} alt="student" />
           </div>
 
-
         <h3>Evaluations: </h3>
+        <EvaluationForm studentId={this.props.match.params.studentId} />
         <EvaluationsContainer evaluations={this.props.evaluations} />
       </div>
     )
