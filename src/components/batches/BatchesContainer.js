@@ -18,6 +18,8 @@ export class BatchesContainer extends PureComponent {
   }
 
   render () {
+
+
     return (
       <div className="batchesContainer">
         {this.props.batches.map(this.renderBatch)}
@@ -27,8 +29,7 @@ export class BatchesContainer extends PureComponent {
 
 }
 
-const mapStateToProps = ({ batches }) => ({ batches })
-
+const mapStateToProps = ({ batches }) => ({ batches})
 
 
 export default connect(mapStateToProps )(BatchesContainer)

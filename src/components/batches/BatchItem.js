@@ -1,7 +1,7 @@
 // src/recipes/RecipeItem.js
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 import { push } from 'react-router-redux'
@@ -11,7 +11,8 @@ export const batchShape = PropTypes.shape({
     name: PropTypes.string.isRequired,
     start_date: PropTypes.string,
     end_date: PropTypes.string,
-    userId: PropTypes.string.isRequired
+    userId: PropTypes.string.isRequired,
+    push: PropTypes.func.isRequired
 })
 
 
@@ -43,28 +44,30 @@ const style2 = {
 }
 class BatchItem extends PureComponent {
 
+
   static propTypes = {
     ...batchShape.isRequired
   }
 
-  visitBatch = batchId => event => this.props.push(`/batches/${batchId}`)
-
+  visitBatch = batchId => event => {
+    event.preventDefault()
+    this.props.push(`/batches/${batchId}`)
+  }
 
 
   render() {
-    // console.log(this.props);
-    // const batchItem = this.props
+
     return (
       <div style={style2}>
-          <Link to={`/batches/${this.props._id}`}>
-            <Paper style={style} >
+
+            <Paper style={style} onClick={this.visitBatch(this.props._id)} >
             <h4>Batch: {this.props.name}</h4>
             </Paper>
-          </Link>
+
       </div>
     )
 
   }
 }
 
-export default BatchItem
+export default connect(null, {push})(BatchItem)

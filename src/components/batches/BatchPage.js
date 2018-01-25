@@ -7,24 +7,31 @@ import StudentsContainer from '../students/StudentsContainer'
 // import Title from '../Title'
 // import {Link} from 'react-router-dom'
 import {batchShape} from './BatchItem'
-
+import {replace, push} from 'react-router-redux'
 
 export class BatchPage extends PureComponent {
   static propTypes = {
     batches: PropTypes.arrayOf(batchShape).isRequired,
+    signedIn: PropTypes.bool.isRequired,
   }
 
 
   componentWillMount() {
-    const batchId = this.props.match.params.batchId
-    this.props.fetchOneBatch(batchId)
-    this.props.fetchBatchStudents(batchId)
-
+    const { signedIn } = this.props
+    if (signedIn) {
+      const batchId = this.props.match.params.batchId
+      this.props.fetchOneBatch(batchId)
+      this.props.fetchBatchStudents(batchId)
+    }
+    else {
+      this.props.replace('/sign-in')
+    }
 
   }
 
 
   render() {
+
 
     return (
       <div>
@@ -40,12 +47,13 @@ export class BatchPage extends PureComponent {
 
 
 
-const mapDispatchToProps = { fetchOneBatch, fetchBatchStudents }
+const mapDispatchToProps = { fetchOneBatch, fetchBatchStudents, replace, push }
 
-const mapStateToProps = ({batches, students}, {match}) => ({
+const mapStateToProps = ({batches, students, currentUser}, {match}) => ({
   batches: batches,
   students: students,
-  match: match
+  match: match,
+  signedIn: !!currentUser && !!currentUser._id
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BatchPage)
