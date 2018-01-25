@@ -12,7 +12,7 @@ export default function(state = [], action = {}) {
     //     return { ...recipe, liked: !recipe.liked }
     //   })
     case CREATE_BATCH:
-      return [...action.payload].concat(state)
+      return [action.payload, ...state,]
 
     case FETCHED_BATCHES:
 

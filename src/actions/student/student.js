@@ -2,7 +2,6 @@
 import ApiClient from '../../api/client'
 import {addLoading, removeLoading} from '../loading'
 import loadError from '../loadError'
-import {replace, push} from 'react-router-redux'
 
 export const FETCHED_STUDENTS = 'FETCHED_STUDENTS'
 export const CREATE_STUDENT = 'CREATE_STUDENT'
@@ -17,13 +16,14 @@ export const createStudent = (batchId, student) => {
 
     function endLoading() { dispatch(removeLoading(CREATE_STUDENT)) }
 
-
+    console.log(student);
+    
     api.post(`batches/${batchId}/students`, student)
       .then((res) => {
         endLoading()
         dispatch({type: CREATE_STUDENT, payload: res.body})
 
-        dispatch(replace(`/batches/${batchId}`))
+        // dispatch(replace(`/batches/${batchId}`))
       })
       .catch(err => {
         dispatch(loadError(err))

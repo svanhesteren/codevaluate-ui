@@ -2,7 +2,7 @@
 import ApiClient from '../../api/client'
 import {addLoading, removeLoading} from '../loading'
 import loadError from '../loadError'
-import {replace, push} from 'react-router-redux'
+// import {replace, push} from 'react-router-redux'
 
 export const FETCHED_EVALUATIONS = 'FETCHED_EVALUATIONS'
 export const CREATE_EVALUATION = 'CREATE_EVALUATION'
@@ -23,7 +23,6 @@ export const createEvaluation = (studentId, evaluation) => {
       .then((res) => {
         endLoading()
         dispatch({type: CREATE_EVALUATION, payload: res.body})
-        dispatch(replace(`/students/${studentId}`))
       })
       .catch(err => {
         dispatch(loadError(err))

@@ -17,18 +17,18 @@ import { push } from 'react-router-redux'
 
 // const TITLE = 'MEMORY'
 
-const styles = {
-  root: {
-    width: '100%',
-  },
-  flex: {
-    flex: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-};
+// const styles = {
+//   root: {
+//     width: '100%',
+//   },
+//   flex: {
+//     flex: 1,
+//   },
+//   menuButton: {
+//     marginLeft: -12,
+//     marginRight: 20,
+//   },
+// };
 
 class Navigation extends PureComponent {
   static propTypes = {

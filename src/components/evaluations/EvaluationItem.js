@@ -1,8 +1,8 @@
 // src/recipes/RecipeItem.js
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
+// import PropTypes from 'prop-types'
+// import { connect } from 'react-redux'
+// import {Link} from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 
 const style2 = {
@@ -42,12 +42,15 @@ class EvaluationItem extends PureComponent {
         codeColor = "#ffffff"
     }
 
+    var evalDate = new Date(this.props.date).toDateString()
+    var tempDate = new Date(evalDate)
+    console.log(tempDate);
 
     return (
       <div style={style2}>
 
-        <Paper style={{padding: 30, width: 200, 'background-color': `${codeColor}`}}>
-        <h5>Date: {this.props.date}</h5>
+        <Paper style={{padding: 30, width: 200, 'backgroundColor': `${codeColor}`}}>
+        <h5>Date: {evalDate}</h5>
         <pre>{this.props.remark}</pre>
 
         </Paper>

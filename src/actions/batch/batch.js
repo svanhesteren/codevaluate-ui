@@ -2,7 +2,7 @@
 import ApiClient from '../../api/client'
 import {addLoading, removeLoading} from '../loading'
 import loadError from '../loadError'
-import {replace} from 'react-router-redux'
+// import {replace} from 'react-router-redux'
 
 export const FETCHED_BATCHES = 'FETCHED_BATCHES'
 export const CREATE_BATCH = 'CREATE_BATCH'
@@ -21,7 +21,6 @@ export const createBatch = (batch) => {
     api.post('batches', batch)
       .then((res) => {
         dispatch({type: CREATE_BATCH, payload: res.body})
-        dispatch(replace("/"))
         endLoading()
       })
       .catch(err => {

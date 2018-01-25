@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
+// import { push } from 'react-router-redux'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -32,7 +32,7 @@ export class BatchForm extends PureComponent {
 
   validateEndDate(e, date) {
     const endDate = date || this.state.endDate
-    console.log(endDate)
+    // console.log(endDate)
     // console.log(this.state);
     // const {startDate} = this.state
     // console.log("start",startDate);
@@ -55,7 +55,7 @@ export class BatchForm extends PureComponent {
 
   validateStartDate(e, date) {
     const startDate = date || this.state.startDate
-    console.log(startDate)
+    // console.log(startDate)
     // console.log(this.state);
     // const {endDate} = this.state
     // console.log("end",endDate);
@@ -100,7 +100,7 @@ export class BatchForm extends PureComponent {
   submitForm(event) {
     event.preventDefault()
     if (this.validateAll()) {
-      console.log(this.props.currentUser);
+      // console.log(this.props.currentUser);
       const batch = {
         name: this.refs.name.getValue(),
         startDate: this.state.startDate,

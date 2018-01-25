@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
+// import { push } from 'react-router-redux'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -16,7 +16,7 @@ export class EvaluationForm extends PureComponent {
 
 
   static propTypes = {
-    createStudent: PropTypes.func.isRequired
+    createEvaluation: PropTypes.func.isRequired
 
   }
   constructor(props) {
@@ -74,7 +74,7 @@ export class EvaluationForm extends PureComponent {
       const studentId = this.props.studentId
 
       const evaluation = {
-        date: this.state.evalDate,
+        date: this.state.evalDate.toDateString(),
         code: EVAL_COLORS[this.state.value-1],
         remark: this.refs.remark.getValue(),
         studentId: studentId

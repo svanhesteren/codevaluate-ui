@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
+// import { push } from 'react-router-redux'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import DatePicker from 'material-ui/DatePicker';
+// import DatePicker from 'material-ui/DatePicker';
 import  {createStudent}  from '../../actions/student/student'
 
 export class StudentForm extends PureComponent {
@@ -30,14 +30,15 @@ export class StudentForm extends PureComponent {
   //   })
   // }
 
-  // validatePicture() {
-  //   const { picture } = this.refs
-  //
-  //   this.setState({
-  //     picture: picture
-  //   })
-  //     return true
-  //   }
+  validatePicture() {
+    const { pic } = this.refs
+
+    console.log(pic);
+    this.setState({
+      picture: pic
+    })
+      return true
+    }
 
 
 
@@ -58,6 +59,7 @@ export class StudentForm extends PureComponent {
 
   validateAll() {
     return this.validateName()
+
   }
 
   submitForm(event) {
@@ -65,10 +67,10 @@ export class StudentForm extends PureComponent {
     if (this.validateAll()) {
       // console.log(this.props.currentUser);
       const batchId = this.props.batchId
-
+      // console.log(this.refs.pic.getValue());
       const student = {
         name: this.refs.name.getValue(),
-        picture: this.refs.picture.getValue(),
+        picture: this.refs.pic.getValue(),
         batchId: batchId
       }
       this.props.createStudent(batchId, student)
@@ -91,11 +93,11 @@ export class StudentForm extends PureComponent {
               onChange={this.validateName.bind(this)}
               errorText={this.state.nameError} />
           </div>
-          <div className="input">
-            <TextField ref="picture" type="text" hintText="Picture URL"
-              // onChange={this.validatePicture.bind(this)}
-              />
+
+          <div className="inputPic">
+            <TextField ref="pic" type="text" hintText="Pic url" />
           </div>
+
         </form>
         <RaisedButton
           onClick={this.submitForm.bind(this)}

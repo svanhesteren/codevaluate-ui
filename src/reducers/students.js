@@ -9,7 +9,7 @@ export default function(state = [], action = {}) {
     case FETCHED_STUDENTS:
       return [...action.payload]
     case CREATE_STUDENT:
-      return [...action.payload].concat(state)
+      return [action.payload, ...state,]
 
     default:
       return state

@@ -32,7 +32,7 @@ export class BatchPage extends PureComponent {
     // // const {batchnames} = this.props
     // console.log(this.props);
     const batchItems = this.props.batches.map(batch => batch)[0]
-    console.log(batchItems);
+    // console.log(batchItems);
     return (
       <div>
         <h2>name: {!!batchItems && batchItems.name}</h2>

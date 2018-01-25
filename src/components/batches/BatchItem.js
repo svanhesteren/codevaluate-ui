@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import Paper from 'material-ui/Paper'
 import { push } from 'react-router-redux'
 

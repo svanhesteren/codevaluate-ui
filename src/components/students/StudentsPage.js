@@ -5,7 +5,7 @@ import {fetchAllStudents} from '../../actions/student/student'
 // import {fetchBatchStudents} from '../../actions/student/student'
 import StudentsContainer from './StudentsContainer'
 // import Title from '../components/Title'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 export class StudentsPage extends PureComponent {
   static propTypes = {

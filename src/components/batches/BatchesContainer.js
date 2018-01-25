@@ -21,7 +21,7 @@ export class BatchesContainer extends PureComponent {
 
     const style = {
       'display': 'flex',
-      'flex-wrap': 'wrap'
+      'flexWrap': 'wrap'
     }
 
     return (

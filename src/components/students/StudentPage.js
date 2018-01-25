@@ -34,7 +34,7 @@ export class StudentPage extends PureComponent {
 
     const style = {
       'display':'flex',
-      'flex-direction' : 'column'
+      'flexDirection' : 'column'
     }
 
     return (
