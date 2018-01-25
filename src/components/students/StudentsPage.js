@@ -8,9 +8,9 @@ import StudentsContainer from './StudentsContainer'
 import {Link} from 'react-router-dom'
 
 export class StudentsPage extends PureComponent {
-  // static propTypes = {
-  //   title: PropTypes.string,
-  // }
+  static propTypes = {
+    signedIn: PropTypes.bool.isRequired,
+  }
 
   componentWillMount() {
     // console.log(this.props.match.params.batchId);
@@ -20,6 +20,9 @@ export class StudentsPage extends PureComponent {
   }
 
   render() {
+    const {signedIn} = this.props
+    if(!signedIn) {return null}
+
     return (
       <div>
         <h1>hi this is the all students Page</h1>
@@ -33,6 +36,9 @@ export class StudentsPage extends PureComponent {
 
 const mapDispatchToProps = { fetchAllStudents }
 
-const mapStateToProps = ({students}) => ({students})
+const mapStateToProps = ({students, currentUser}) => ({
+  students,
+  signedIn: !!currentUser && !!currentUser._id
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentsPage)

@@ -2,17 +2,17 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {fetchOneStudent} from '../../actions/student/student'
-import {fetchStudentEvaluations, fetchAllEvaluations} from '../../actions/evaluation/evaluation'
+import {fetchStudentEvaluations} from '../../actions/evaluation/evaluation'
 import EvaluationsContainer from '../evaluations/EvaluationsContainer'
 // import {fetchBatchStudents} from '../../actions/student/student'
 // import StudentsContainer from '../students/StudentsContainer'
 // import Title from '../components/Title'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 export class StudentPage extends PureComponent {
-  // static propTypes = {
-  //   title: PropTypes.string,
-  // }
+  static propTypes = {
+    signedIn: PropTypes.bool.isRequired,
+  }
 
   componentWillMount() {
     // console.log(this.props.match.params.batchId);
@@ -28,7 +28,11 @@ export class StudentPage extends PureComponent {
     const studentPic = this.props.students.map(p => (p.picture|| ""))[0]
 
 
+    const {signedIn} = this.props
+    if(!signedIn) {return null}
+
     return (
+
       <div>
 
           <div>
@@ -50,8 +54,10 @@ export class StudentPage extends PureComponent {
 
 const mapDispatchToProps = { fetchOneStudent, fetchStudentEvaluations }
 
-const mapStateToProps = ({students, evaluations}, {match}) => ({
+const mapStateToProps = ({students, evaluations, currentUser}, {match}) => ({
   students: students,
-  evaluations, match})
+  evaluations, match,
+  signedIn: !!currentUser && !!currentUser._id
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentPage)
