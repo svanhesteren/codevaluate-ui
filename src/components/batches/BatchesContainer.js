@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import BatchItem, {batchShape} from './BatchItem'
 // import {fetchAllBatches} from '../../actions/batch/batch'
 
-class BatchesContainer extends PureComponent {
+export class BatchesContainer extends PureComponent {
   static propTypes = {
     batches: PropTypes.arrayOf(batchShape).isRequired,
   }

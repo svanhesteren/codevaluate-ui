@@ -9,7 +9,6 @@ import muiTheme from './styles/theme'
 import Navigation from './components/UI/Navigation'
 // src/App.js
 
-
 class App extends Component {
   static childContextTypes = {
     muiTheme: PropTypes.object.isRequired,
