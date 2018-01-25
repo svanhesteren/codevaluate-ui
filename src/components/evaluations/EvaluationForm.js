@@ -24,7 +24,8 @@ export class EvaluationForm extends PureComponent {
 
     this.state = {
       value: 1,
-      evalDate: null
+      evalDate: null,
+      remarkError: null
     }
   }
   validateDate(e, date) {
@@ -48,16 +49,15 @@ export class EvaluationForm extends PureComponent {
   validateRemark() {
     const { remark } = this.refs
     const value = this.state.value
-    console.log(value);
 
-    if (remark.getValue().length > 1 && value === 1) {
+    if (remark.getValue().length > 1 || value === 1) {
       this.setState({
-        nameError: null,
+        remarkError: null,
       })
       return true
     }
     this.setState({
-      nameError: 'Please provide a comment'
+      remarkError: 'Please provide a comment'
     })
     return false
   }
@@ -73,6 +73,8 @@ export class EvaluationForm extends PureComponent {
       // console.log(this.props.currentUser);
       const studentId = this.props.studentId
 
+      // const value = this.state.value
+      // console.log(value);
       const evaluation = {
         date: this.state.evalDate.toDateString(),
         code: EVAL_COLORS[this.state.value-1],
