@@ -30,7 +30,6 @@ export class BatchesPage extends PureComponent {
   }
 
   render() {
-    // const { signedIn } = this.props
 
     return (
       <div>

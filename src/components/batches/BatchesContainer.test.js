@@ -1,7 +1,7 @@
 import React from 'react'
 import {shallow} from 'enzyme'
 import { BatchesContainer } from './BatchesContainer'
-import BatchItem from './BatchItem'
+import { BatchItem } from './BatchItem'
 
 const batches = [
   {

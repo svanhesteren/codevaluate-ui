@@ -12,7 +12,7 @@ export const batchShape = PropTypes.shape({
     start_date: PropTypes.string,
     end_date: PropTypes.string,
     userId: PropTypes.string.isRequired,
-    push: PropTypes.func.isRequired
+
 })
 
 
@@ -42,11 +42,11 @@ const style2 = {
   height: 205,
   margin: '10px 10px'
 }
-class BatchItem extends PureComponent {
+export class BatchItem extends PureComponent {
 
 
   static propTypes = {
-    ...batchShape.isRequired
+    ...batchShape.isRequired,
   }
 
   visitBatch = batchId => event => {
