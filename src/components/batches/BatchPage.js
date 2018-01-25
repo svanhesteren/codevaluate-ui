@@ -32,12 +32,14 @@ export class BatchPage extends PureComponent {
     // // const {batchnames} = this.props
     // console.log(this.props);
     const batchItems = this.props.batches.map(batch => batch)[0]
+    const startDate = !!batchItems && new Date(batchItems.start_date).toDateString()
+    const endDate = !!batchItems && new Date(batchItems.end_date).toDateString()
     // console.log(batchItems);
     return (
       <div>
         <h2>name: {!!batchItems && batchItems.name}</h2>
-        <h3>start date: {!!batchItems && batchItems.start_date}</h3>
-        <h3>end date: {!!batchItems && batchItems.end_date}</h3>
+        <h3>start date: {startDate}</h3>
+        <h3>end date: {endDate}</h3>
         <pre>amount of students: { this.props.students.length}</pre>
         <StudentForm batchId={this.props.match.params.batchId}/>
         <StudentsContainer students={this.props.students} />

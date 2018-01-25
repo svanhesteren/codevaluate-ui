@@ -23,26 +23,14 @@ export class BatchForm extends PureComponent {
     }
   }
 
-  // changeStartDate = (event, date) => {
-  //   console.log(date);
-  //   this.setState({
-  //     startDate: date
-  //   })
-  // }
 
   validateEndDate(e, date) {
     const endDate = date || this.state.endDate
-    // console.log(endDate)
-    // console.log(this.state);
-    // const {startDate} = this.state
-    // console.log("start",startDate);
-    // console.log(endDate);
-    // console.log(this.refs.startDate.getValue());
-    // if (!!endDate && !!startDate && (endDate > startDate ) ) {
+
     if(!!endDate) {
       this.setState({
         dateError: null,
-        endDate: endDate
+        endDate: date
       })
       return true
     }
@@ -55,17 +43,11 @@ export class BatchForm extends PureComponent {
 
   validateStartDate(e, date) {
     const startDate = date || this.state.startDate
-    // console.log(startDate)
-    // console.log(this.state);
-    // const {endDate} = this.state
-    // console.log("end",endDate);
-    // console.log(endDate);
-    // console.log(this.refs.startDate.getValue());
-    // if (!!endDate && !!startDate && (endDate > startDate ) ) {
+
     if(!!startDate) {
       this.setState({
         dateError: null,
-        startDate: startDate
+        startDate: date
       })
       return true
     }
@@ -103,8 +85,8 @@ export class BatchForm extends PureComponent {
       // console.log(this.props.currentUser);
       const batch = {
         name: this.refs.name.getValue(),
-        startDate: this.state.startDate,
-        endDate: this.state.endDate
+        start_date: this.state.startDate,
+        end_date: this.state.endDate
       }
       // console.log(batch);
       this.props.createBatch(batch)

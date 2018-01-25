@@ -76,7 +76,7 @@ export class EvaluationForm extends PureComponent {
       // const value = this.state.value
       // console.log(value);
       const evaluation = {
-        date: this.state.evalDate.toDateString(),
+        date: this.state.evalDate,
         code: EVAL_COLORS[this.state.value-1],
         remark: this.refs.remark.getValue(),
         studentId: studentId

@@ -52,6 +52,7 @@ class EvaluationItem extends PureComponent {
         <Paper style={{padding: 30, width: 200, 'backgroundColor': `${codeColor}`}}>
         <h5>Date: {evalDate}</h5>
         <pre>{this.props.remark}</pre>
+        <pre>by: {this.props.userName} </pre>
 
         </Paper>
       </div>

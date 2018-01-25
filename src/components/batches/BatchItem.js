@@ -42,7 +42,8 @@ const style2 = {
   // width: 400,
   // height: 405,
   margin: '10px 10px',
-  padding: 10
+  padding: 10,
+  cursor: 'pointer'
 }
 export class BatchItem extends PureComponent {
 
