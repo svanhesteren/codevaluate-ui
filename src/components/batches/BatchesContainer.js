@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 // import Title from '../Title'
 import BatchItem, {batchShape} from './BatchItem'
 // import {fetchAllBatches} from '../../actions/batch/batch'
-
+// import './BatchesContainer.css'
 export class BatchesContainer extends PureComponent {
   static propTypes = {
     batches: PropTypes.arrayOf(batchShape).isRequired,
@@ -21,7 +21,7 @@ export class BatchesContainer extends PureComponent {
 
 
     return (
-      <div className="batchesContainer">
+      <div className="batchesContainer" >
         {this.props.batches.map(this.renderBatch)}
       </div>
     )

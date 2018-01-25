@@ -106,7 +106,7 @@ export class BatchForm extends PureComponent {
         startDate: this.state.startDate,
         endDate: this.state.endDate
       }
-      console.log(batch);
+      // console.log(batch);
       this.props.createBatch(batch)
     }
     return false

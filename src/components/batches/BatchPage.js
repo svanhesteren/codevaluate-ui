@@ -17,20 +17,28 @@ export class BatchPage extends PureComponent {
 
 
   componentWillMount() {
+
     const batchId = this.props.match.params.batchId
     this.props.fetchOneBatch(batchId)
     this.props.fetchBatchStudents(batchId)
-
+    // this.setState({batches: this.props.batches})
   }
 
 
   render() {
     const {signedIn} = this.props
     if(!signedIn) {return null}
-    
+    // console.log(this.props);
+    // const batchNames = this.props.batches
+    // // const {batchnames} = this.props
+    // console.log(this.props);
+    const batchItems = this.props.batches.map(batch => batch)[0]
+    console.log(batchItems);
     return (
       <div>
-        <pre>{JSON.stringify(this.props.batches[0], null, 2)}</pre>
+        <h2>name: {!!batchItems && batchItems.name}</h2>
+        <h3>start date: {!!batchItems && batchItems.start_date}</h3>
+        <h3>end date: {!!batchItems && batchItems.end_date}</h3>
         <pre>amount of students: { this.props.students.length}</pre>
         <StudentsContainer students={this.props.students} />
       </div>

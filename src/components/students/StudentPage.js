@@ -19,15 +19,17 @@ export class StudentPage extends PureComponent {
     const studentId = this.props.match.params.studentId
     this.props.fetchOneStudent(studentId)
     this.props.fetchStudentEvaluations(studentId)
-    console.log("students", this.props);
 
   }
 
   render() {
+    const studentItems = this.props.students.map(student => student)[0]
+
     return (
       <div>
-        <h1>hi this is studentPage</h1>
-        <pre>{JSON.stringify(this.props.students[0], null, 2)}</pre>
+        <h2>Name: {!!studentItems && studentItems.name}</h2>
+        <img src={!!studentItems && studentItems.picture} alt="student" />
+        <h3>Evaluations: </h3>
         <EvaluationsContainer evaluations={this.props.evaluations} />
       </div>
     )

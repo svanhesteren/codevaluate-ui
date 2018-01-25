@@ -9,14 +9,14 @@ class StudentsContainer extends PureComponent {
     students: PropTypes.array
   }
 
-  componentWillMount() {
-    console.log(this.props.students);
+  // componentWillMount() {
+    // console.log(this.props.students);
     // if(this.props.students.length <= 0){
     //
     //   this.props.fetchAllStudents()
     // }
     // console.log(this.props);
-  }
+  // }
 
   renderStudent = (student, index) => {
     return <StudentItem key={index} { ...student } />

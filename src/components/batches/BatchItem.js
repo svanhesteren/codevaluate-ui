@@ -27,20 +27,22 @@ export const batchShape = PropTypes.shape({
 //     liked: PropTypes.bool
 // })
 
-const style = {
-  height: 100,
-  width: 100,
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-};
+// const style = {
+//   height: 300,
+//   width: 400,
+//   margin: 100,
+//   textAlign: 'center',
+//   display: 'inline-block',
+// };
 
 const style2 = {
-  display: 'flex',
-  'flexWrap': 'row wrap',
-  width: 200,
-  height: 205,
-  margin: '10px 10px'
+  // display: 'flex',
+  // flex: 1,
+  'flexWrap': 'wrap',
+  // width: 400,
+  // height: 405,
+  margin: '10px 10px',
+  padding: 10
 }
 export class BatchItem extends PureComponent {
 
@@ -61,7 +63,7 @@ export class BatchItem extends PureComponent {
     return (
       <div style={style2}>
 
-            <Paper style={style} onClick={this.visitBatch(this.props._id).bind(this)} >
+            <Paper style={{padding: 70}} onClick={this.visitBatch(this.props._id).bind(this)} >
             <h4>Batch: {this.props.name}</h4>
             </Paper>
 
