@@ -29,7 +29,6 @@ class ErrorItem extends PureComponent {
           open={this.state.open}
           autoHideDuration={5000}
           onClose={this.handleRequestClose}
-          anchorOrigin={{vertical: 'top', horizontal: 'center' }}
           /> )}
       </div>
     )

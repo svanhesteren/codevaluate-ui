@@ -18,17 +18,14 @@ export default (user) => {
     api.post('sessions', {...user})
       .then((response) => {
         const jwt  = response.body.token
+
         api.storeToken(jwt)
 
         dispatch(replace('/'))
 
-      })
-      .catch((error) => {
-        endLoading()
-        dispatch(loadError(error))
-      })
+        return api.get('users/me')
 
-      api.get('users/me')
+      })
 
       .then(response => {
         dispatch( {

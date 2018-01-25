@@ -7,6 +7,7 @@ import BatchesContainer from './BatchesContainer'
 import Title from '../Title'
 import {batchShape} from './BatchItem'
 import {replace, push} from 'react-router-redux'
+import {BatchForm} from './BatchForm'
 // import {Link} from 'react-router-dom'
 
 
@@ -18,18 +19,16 @@ export class BatchesPage extends PureComponent {
     signedIn: PropTypes.bool.isRequired,
   }
 
-  componentWillMount() {
-    const { signedIn } = this.props
-    if (signedIn) {
-      this.props.fetchAllBatches()
-    }
-    else {
-      this.props.replace("/sign-in")
-    }
 
+
+  componentWillMount() {
+      this.props.fetchAllBatches()
   }
 
+
   render() {
+    const {signedIn} = this.props
+    if(!signedIn) {return null}
 
     return (
       <div>

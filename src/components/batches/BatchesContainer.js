@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 // import Title from '../Title'
-import {BatchItem, batchShape} from './BatchItem'
+import BatchItem, {batchShape} from './BatchItem'
 // import {fetchAllBatches} from '../../actions/batch/batch'
 
 export class BatchesContainer extends PureComponent {

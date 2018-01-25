@@ -17,22 +17,17 @@ export class BatchPage extends PureComponent {
 
 
   componentWillMount() {
-    const { signedIn } = this.props
-    if (signedIn) {
-      const batchId = this.props.match.params.batchId
-      this.props.fetchOneBatch(batchId)
-      this.props.fetchBatchStudents(batchId)
-    }
-    else {
-      this.props.replace('/sign-in')
-    }
+    const batchId = this.props.match.params.batchId
+    this.props.fetchOneBatch(batchId)
+    this.props.fetchBatchStudents(batchId)
 
   }
 
 
   render() {
-
-
+    const {signedIn} = this.props
+    if(!signedIn) {return null}
+    
     return (
       <div>
         <pre>{JSON.stringify(this.props.batches[0], null, 2)}</pre>

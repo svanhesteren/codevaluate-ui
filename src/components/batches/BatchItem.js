@@ -37,7 +37,7 @@ const style = {
 
 const style2 = {
   display: 'flex',
-'flex-wrap': 'wrap',
+  'flexWrap': 'row wrap',
   width: 200,
   height: 205,
   margin: '10px 10px'
@@ -47,10 +47,11 @@ export class BatchItem extends PureComponent {
 
   static propTypes = {
     ...batchShape.isRequired,
+    // push: PropTypes.func
   }
 
   visitBatch = batchId => event => {
-    event.preventDefault()
+    // event.preventDefault()
     this.props.push(`/batches/${batchId}`)
   }
 
@@ -60,7 +61,7 @@ export class BatchItem extends PureComponent {
     return (
       <div style={style2}>
 
-            <Paper style={style} onClick={this.visitBatch(this.props._id)} >
+            <Paper style={style} onClick={this.visitBatch(this.props._id).bind(this)} >
             <h4>Batch: {this.props.name}</h4>
             </Paper>
 
