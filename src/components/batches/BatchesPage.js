@@ -34,6 +34,7 @@ export class BatchesPage extends PureComponent {
       <div>
         <Title content={TITLE_TEXT} />
         <BatchesContainer batches={this.props.batches} />
+        <BatchForm />
       </div>
     )
   }
