@@ -20,6 +20,8 @@ class StudentItem extends PureComponent {
 
 
   render() {
+
+    console.log(this.props.eval);
     return (
       <div style={style2}>
           <Link style={{textDecoration:'none'}} to={`/students/${this.props._id}`}>

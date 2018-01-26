@@ -82,6 +82,8 @@ export class EvaluationForm extends PureComponent {
         studentId: studentId
       }
       this.props.createEvaluation(studentId, evaluation)
+      // const evals = [...this.props.evaluations, evaluation].sort(date)
+      // console.log(this.props.evaluations);
     }
     return false
   }
@@ -131,7 +133,7 @@ export class EvaluationForm extends PureComponent {
   }
 }
 
-const mapStateToProps = ({currentUser}) => ({currentUser})
+const mapStateToProps = ({currentUser, evaluations}) => ({currentUser, evaluations})
 
 const mapDispatchToProps = {createEvaluation}
 

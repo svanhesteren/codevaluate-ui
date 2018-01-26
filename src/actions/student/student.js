@@ -2,9 +2,11 @@
 import ApiClient from '../../api/client'
 import {addLoading, removeLoading} from '../loading'
 import loadError from '../loadError'
+import {FETCHED_EVALUATIONS} from '../evaluation/evaluation'
 
 export const FETCHED_STUDENTS = 'FETCHED_STUDENTS'
 export const CREATE_STUDENT = 'CREATE_STUDENT'
+export const PATCHED_STUDENT = 'PATCHED_STUDENT'
 
 const api = new ApiClient()
 
@@ -17,7 +19,7 @@ export const createStudent = (batchId, student) => {
     function endLoading() { dispatch(removeLoading(CREATE_STUDENT)) }
 
     console.log(student);
-    
+
     api.post(`batches/${batchId}/students`, student)
       .then((res) => {
         endLoading()
@@ -54,6 +56,28 @@ export const fetchAllStudents = () =>  {
   }
 }
 
+export const fetchLatestBatchEvaluations = (batchId) => {
+  return dispatch => {
+
+  function endLoading() { dispatch(removeLoading(FETCHED_EVALUATIONS)) }
+
+  console.log("Fetching all latest batch evaluations.......")
+
+  api.get(`batches/${batchId}/latestevals`)
+    .then(res => {
+      dispatch({ type: FETCHED_EVALUATIONS, payload: res.body })
+      endLoading()
+    })
+    .catch(err => {
+      dispatch(loadError(err))
+      endLoading()
+    })
+}
+}
+
+
+
+
 export const fetchBatchStudents = (batchId) =>  {
   return dispatch => {
 
@@ -74,6 +98,10 @@ export const fetchBatchStudents = (batchId) =>  {
       })
   }
 }
+
+
+
+
 
 export const fetchOneStudent = (studentId) =>  {
   return dispatch => {

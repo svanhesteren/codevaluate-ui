@@ -74,6 +74,7 @@ export class StudentForm extends PureComponent {
         batchId: batchId
       }
       this.props.createStudent(batchId, student)
+      // console.log(this.props.evaluations);
     }
     return false
   }

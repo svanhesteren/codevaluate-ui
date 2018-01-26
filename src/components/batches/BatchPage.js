@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {fetchOneBatch} from '../../actions/batch/batch'
-import {fetchBatchStudents} from '../../actions/student/student'
+import {fetchBatchStudents, fetchLatestBatchEvaluations} from '../../actions/student/student'
 import StudentsContainer from '../students/StudentsContainer'
 import StudentForm from '../students/StudentForm'
 import {batchShape} from './BatchItem'
@@ -20,6 +20,7 @@ export class BatchPage extends PureComponent {
     const batchId = this.props.match.params.batchId
     this.props.fetchOneBatch(batchId)
     this.props.fetchBatchStudents(batchId)
+    this.props.fetchLatestBatchEvaluations(batchId)
     // this.setState({batches: this.props.batches})
   }
 
@@ -52,13 +53,14 @@ export class BatchPage extends PureComponent {
 
 
 
-const mapDispatchToProps = { fetchOneBatch, fetchBatchStudents, replace, push }
+const mapDispatchToProps = { fetchOneBatch, fetchBatchStudents, fetchLatestBatchEvaluations, replace, push }
 
-const mapStateToProps = ({batches, students, currentUser}, {match}) => ({
+const mapStateToProps = ({batches, students, currentUser, evaluations}, {match}) => ({
   batches: batches,
   students: students,
   match: match,
-  signedIn: !!currentUser && !!currentUser._id
+  signedIn: !!currentUser && !!currentUser._id,
+  evaluations: evaluations
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BatchPage)

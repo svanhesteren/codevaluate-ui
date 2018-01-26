@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import StudentItem from './StudentItem'
-// import {fetchAllStudents} from '../../actions/student/student'
+import {fetchLatestEvaluation} from '../../actions/evaluation/evaluation'
 
 class StudentsContainer extends PureComponent {
   static propTypes = {
@@ -19,7 +19,10 @@ class StudentsContainer extends PureComponent {
   // }
 
   renderStudent = (student, index) => {
-    return <StudentItem key={index} { ...student } />
+
+
+      return <StudentItem key={index} { ...student } />
+
   }
 
   render () {
@@ -38,9 +41,9 @@ class StudentsContainer extends PureComponent {
 
 }
 
-const mapStateToProps = ({ students }) => ({ students })
+const mapStateToProps = ({ students, evaluations }) => ({ students, evaluations })
 
 // const mapDispatchToProps = {fetchAllStudents}
 
 
-export default connect(mapStateToProps )(StudentsContainer)
+export default connect(mapStateToProps, {fetchLatestEvaluation} )(StudentsContainer)
