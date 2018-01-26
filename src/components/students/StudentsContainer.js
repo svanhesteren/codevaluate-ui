@@ -20,7 +20,8 @@ class StudentsContainer extends PureComponent {
 
   renderStudent = (student, index) => {
 
-      const evaluation = this.props.evaluations.filter(evaluation => student._id === evaluation.studentId)[0]
+      const evaluation = this.props.evaluations.filter(evaluation => !!evaluation && student._id === evaluation.studentId)[0]
+
       return <StudentItem key={index} evaluation={evaluation} { ...student } />
 
   }
