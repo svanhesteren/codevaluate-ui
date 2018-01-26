@@ -32,7 +32,7 @@ const randomWeightValue = (allWeights) => {
 
 
 
-const randomStudent = (evaluations) => {
+export const randomStudent = (evaluations) => {
 
   var totalWeight = randomWeightValue(sumAllWeights(evaluations))
 

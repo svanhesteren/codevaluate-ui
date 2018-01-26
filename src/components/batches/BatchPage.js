@@ -19,15 +19,15 @@ export class BatchPage extends PureComponent {
   getRandomStudent = () => {
     const evaluations = this.props.evaluations
     const students = this.props.students
-
+    console.log(evaluations);
     const result = randomStudent(evaluations)
-    // console.log(result);
+    console.log(result);
     if (!!result) {
       // console.log(result)
 
-      const sel  = students.filter(student => student._id === result)[0]
-      // console.log(sel);
-      const name = sel.name
+      const selectedStudent  = students.filter(student => student._id === result.studentId)[0]
+      // console.log(selectedStudent);
+      const name = selectedStudent.name
       alert (name)
     }
   }
@@ -74,7 +74,9 @@ export class BatchPage extends PureComponent {
 
 
 
-const mapDispatchToProps = { fetchOneBatch, fetchBatchStudents, fetchLatestBatchEvaluations, replace, push }
+const mapDispatchToProps = { fetchOneBatch, fetchBatchStudents,
+  fetchLatestBatchEvaluations, replace, push
+  }
 
 const mapStateToProps = ({batches, students, currentUser, evaluations}, {match}) => ({
   batches: batches,
