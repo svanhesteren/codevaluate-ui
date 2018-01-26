@@ -28,7 +28,7 @@ export class BatchPage extends PureComponent {
       const sel  = students.filter(student => student._id === result)[0]
       // console.log(sel);
       const name = sel.name
-      alert (name, sel.picture)
+      alert (name)
     }
   }
 
