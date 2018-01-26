@@ -104,7 +104,7 @@ export const randomStudent = (evaluations) => {
     const smallTestEvalsNames = ["pietje", "jantje", "marietje"]
 
 
-const runTests = () => {
+const runAlgoTests = () => {
 
 
 
@@ -140,7 +140,7 @@ const runTests = () => {
 }
 
 
-// runTests()
+// runAlgoTests()
 
 // console.log();smallTestEvals
 // console.log(testEvals);
