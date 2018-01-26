@@ -7,12 +7,32 @@ import StudentsContainer from '../students/StudentsContainer'
 import StudentForm from '../students/StudentForm'
 import {batchShape} from './BatchItem'
 import {replace, push} from 'react-router-redux'
+import {randomStudent} from '../../randomStudent'
+import RaisedButton from 'material-ui/RaisedButton'
 
 export class BatchPage extends PureComponent {
   static propTypes = {
     batches: PropTypes.arrayOf(batchShape).isRequired,
     signedIn: PropTypes.bool.isRequired,
   }
+
+  getRandomStudent = () => {
+    const evaluations = this.props.evaluations
+    const students = this.props.students
+
+    const result = randomStudent(evaluations)
+    // console.log(result);
+    if (!!result) {
+      // console.log(result)
+
+      const sel  = students.filter(student => student._id === result)[0]
+      // console.log(sel);
+      const name = sel.name
+      alert (name, sel.picture)
+    }
+  }
+
+
 
 
   componentWillMount() {
@@ -38,6 +58,7 @@ export class BatchPage extends PureComponent {
     // console.log(batchItems);
     return (
       <div>
+        <RaisedButton onClick={this.getRandomStudent} label="get random student"/>
         <h2>name: {!!batchItems && batchItems.name}</h2>
         <h3>start date: {startDate}</h3>
         <h3>end date: {endDate}</h3>

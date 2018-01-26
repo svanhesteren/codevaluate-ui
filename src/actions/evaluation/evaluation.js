@@ -23,22 +23,8 @@ export const createEvaluation = (studentId, evaluation) => {
     api.post(`students/${studentId}/evaluations`, evaluation)
       .then((res) => {
         dispatch({type: CREATE_EVALUATION, payload: res.body})
-        // const studentEval = fetchStudentEvaluations(studentId)
-        // console.log(this.state)
+        endLoading()
 
-        // const patchForStudent = {
-        //   latestEvalCode: evaluation.code,
-        //   latestEvalDate: evaluation.date
-        // }
-        // api.patch(`students/${studentId}`, patchForStudent)
-        //   .then(res => {
-        //     dispatch({type: PATCHED_STUDENT, payload: patchForStudent})
-        //     endLoading()
-        //   })
-        //   .catch(err => {
-        //     dispatch(loadError(err))
-        //     endLoading()
-        //   })
       })
       .catch(err => {
         dispatch(loadError(err))
