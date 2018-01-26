@@ -11,6 +11,7 @@ export const grey         = '#DEDEDE'
 export const grey50       = 'rgba(222, 222, 222, 0.5)'
 export const grey30       = 'rgba(222, 222, 222, 0.7)'
 
+
 // Palette
 export const palette = {
   primary1Color: red,
@@ -23,5 +24,10 @@ export const palette = {
   borderColor: grey,
   disabledColor: grey30
 }
+
+
+
+export const EVAL_CODES = ['Green', "yellow", "Red"]
+export const EVAL_COLORS = ['#33cc33', '#ffcc00', '#990000']
 
 export default getMuiTheme({ palette })

@@ -64,7 +64,7 @@ export class BatchPage extends PureComponent {
         <h3>end date: {endDate}</h3>
         <pre>amount of students: { this.props.students.length}</pre>
         <StudentForm batchId={this.props.match.params.batchId}/>
-        <StudentsContainer students={this.props.students} />
+        <StudentsContainer students={this.props.students} evaluations={this.props.evaluations}/>
       </div>
     )
   }

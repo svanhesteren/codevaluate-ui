@@ -44,7 +44,7 @@ class EvaluationItem extends PureComponent {
 
     var evalDate = new Date(this.props.date).toDateString()
     var tempDate = new Date(evalDate)
-    console.log(tempDate);
+    // console.log(tempDate);
 
     return (
       <div style={style2}>
